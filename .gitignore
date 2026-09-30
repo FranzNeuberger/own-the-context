@@ -1,0 +1,36 @@
+# Licensed full texts never go into a public repository.
+*.pdf
+**/stash/*
+!**/stash/README.md
+
+# Data and data-derived objects stay outside the tree.
+data/
+# (CSV is not excluded: the example and template CSVs belong in the tree.)
+*.RData
+*.Rdata
+*.rdata
+*.rda
+*.rds
+*.dta
+*.sav
+*.zsav
+*.por
+*.sas7bdat
+*.parquet
+*.feather
+*.xls
+*.xlsx
+
+# Quick-start working copy (may hold summaries of licensed sources)
+/my_vault/
+
+# Tooling
+__pycache__/
+*.pyc
+.DS_Store
+.obsidian/workspace*
+.Rhistory
+.Rproj.user/
+.venv/
+venv/
+.claude/settings.local.json

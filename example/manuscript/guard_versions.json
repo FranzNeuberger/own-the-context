@@ -1,0 +1,10 @@
+{
+  "v1": {
+    "required_modules": ["02_DESC", "03_MODELS"],
+    "freeze": "2025-03-07_163000"
+  },
+  "v2": {
+    "required_modules": ["02_DESC", "03_MODELS", "05_TEXT"],
+    "freeze": "2025-03-14_101500"
+  }
+}

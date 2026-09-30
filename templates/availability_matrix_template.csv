@@ -1,0 +1,2 @@
+variable,share_valid_w1,share_valid_w2,waves_available,n_waves,wording_change,filter_change,weight_basis_change,source_note
+var_b,0.52,0.49,w1;w2,2,w2: response scale reworded,none,none,synthetic example row; shares below 1 reflect the filter on var_a

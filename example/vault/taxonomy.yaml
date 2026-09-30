@@ -1,0 +1,76 @@
+# Curated tag taxonomy (example structure with neutral placeholder tags).
+#
+# This file is the single source of truth for tags. Agents propose; the
+# researcher admits, maps or rejects, and every decision keeps its reason.
+# Change log: record each review session here, e.g.
+#   2025-03-01 review: 2 admitted (..), 1 mapped (..), 3 rejected (..)
+#
+# Sections:
+#   taxonomy            admitted tags, by category (a tag in one category only)
+#   consolidations      variants mapped to one canonical admitted tag
+#   rejected_tags       rejected proposals with reasons, grouped by session
+#   statistics          optional counts, updated at review time
+#   proposed_additions  undecided proposals (status: review_needed | borderline)
+#
+# Admission rule: a tag must discriminate -- used by more than one entry and by
+# fewer than half of the corpus. A tag that names the field itself fails.
+
+taxonomy:
+  METHOD:
+  - Panel_Study
+  - Cross_Sectional
+  - Survey_Experiment
+  - Meta_Analysis
+  - Qualitative_Interviews
+  - Measurement
+  DATA:
+  - Household_Panel
+  - Administrative_Records
+  CONCEPT:
+  - Remote_Work
+  - Commuting
+  - Residential_Mobility
+  OUTCOME:
+  - Travel_Time
+  - Wellbeing
+  POPULATION:
+  - Employees
+  SPATIAL:
+  - Urban_Rural
+  TEMPORAL:
+  - Long_Term_Effects
+
+consolidations:
+  Remote_Work:
+    merged_from:
+    - Telework
+    - Working_From_Home
+    - Home_Office
+    reason: Synonymous labels for the same arrangement
+    canonical: Remote_Work
+  Measurement:
+    merged_from:
+    - Measurement_Error
+    - Recall_Error
+    reason: Kept as one methods tag until more than a few entries need the split
+    canonical: Measurement
+
+rejected_tags:
+  session_2025_03_01:
+  - tag: Social_Science
+    reason: Names the field itself; applies to nearly the whole corpus
+  - tag: Solar_Power
+    reason: Off-topic for this collection
+
+statistics:
+  total_entries_analyzed: 3
+  final_curated_tags: 16
+  last_update: 2025-03-01
+
+proposed_additions:
+  - tag: Hybrid_Schedules
+    category: CONCEPT
+    first_seen: "Moe_2025_Hybrid_Schedules_Residential_Relocation_"
+    date: 2025-03-01
+    status: review_needed
+    note: Possibly a sub-case of Remote_Work; decide once a second entry needs it

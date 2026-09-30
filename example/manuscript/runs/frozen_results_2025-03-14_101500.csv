@@ -1,0 +1,13 @@
+module,block,label,value
+02_DESC,SAMPLE,n_persons,4812
+02_DESC,SAMPLE,n_obs,19230
+02_DESC,SHARE,share_remote_w1,0.2237
+02_DESC,SHARE,share_remote_w2,0.2871
+02_DESC,STATUS,ok=4,failed=0
+03_MODELS,FE,coef_remote,-1.8423
+03_MODELS,FE,se_remote,0.4118
+03_MODELS,FE,n_obs,19230
+03_MODELS,STATUS,ok=3,failed=0
+05_TEXT,DERIVED,diff_share_w2_w1,0.0634
+05_TEXT,STATUS,ok=1,failed=0
+FREEZE,,run_id,2025-03-14_101500

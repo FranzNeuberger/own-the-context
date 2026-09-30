@@ -1,0 +1,4 @@
+variable,label,values,missing_codes,scale,waves_available,wording_changes,filter,notes
+var_a,Example item A (synthetic),1=yes; 2=no,-1=don't know; -2=refused,nominal,w1;w2,none,all respondents,synthetic example row
+var_b,Example item B (synthetic),0-10,-1=don't know,interval,w1;w2,w2: response scale reworded,only if var_a = 1,synthetic example row; series not continuous across waves
+var_c,Example item C (synthetic),1=low; 2=medium; 3=high,-9=not asked,ordinal,w2,new in w2,only if var_a = 1,synthetic example row

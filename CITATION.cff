@@ -1,0 +1,51 @@
+# Release TODOs (after the GitHub release v1.0.0 has been archived by Zenodo):
+#   1. Uncomment `date-released` below and set it to the release date.
+#   2. Uncomment `doi` below and set it to the Zenodo concept DOI.
+#   3. Once the journal version is published, switch `preferred-citation`
+#      to the article (type: article, journal, DOI).
+# Everything outside these comments is valid CFF 1.2.0 as it stands.
+#
+# Licence: the code in scripts/ is MIT, and all texts, templates, briefs and
+# the example are CC BY 4.0 (see LICENSE). The `license` key below names only
+# MIT because CFF reads several identifiers as alternatives ("OR"), not as a
+# split by component. The split itself is stated in LICENSE and README.md.
+cff-version: 1.2.0
+message: "If you use or adapt this starter kit, please cite the paper below."
+type: software
+title: "Own the Context, Rent the Model: starter kit"
+abstract: >-
+  Topic-free template repository for a local, auditable research assistant:
+  an agent-maintained, page-anchored literature memory in plain text, agent
+  contracts, maintenance scripts, and a number guard that binds manuscript
+  numbers to a frozen run or a sourced register.
+authors:
+  - family-names: Neuberger
+    given-names: Franz
+    affiliation: "German Youth Institute (DJI)"
+    orcid: "https://orcid.org/0000-0003-3427-0298"
+license: MIT
+version: "1.0.0"
+# date-released: "YYYY-MM-DD"        # RELEASE TODO 1: date of the v1.0.0 release
+# doi: "10.5281/zenodo.NNNNNNN"      # RELEASE TODO 2: Zenodo concept DOI
+keywords:
+  - context engineering
+  - intermediate memory
+  - agentic workflows
+  - auditable literature synthesis
+  - reproducible research pipelines
+  - data sovereignty
+preferred-citation:
+  type: report
+  title: "The AI Zettelkasten: An Intermediate Memory for the Literature of a Sociological Subfield. A Field Report and How-To"
+  authors:
+    - family-names: Neuberger
+      given-names: Franz
+      affiliation: "German Youth Institute (DJI)"
+      orcid: "https://orcid.org/0000-0003-3427-0298"
+  year: 2026
+  publisher:
+    name: SSRN
+  number: "7171998"
+  notes: "SSRN Working Paper"
+  doi: "10.2139/ssrn.7171998"
+  url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7171998"

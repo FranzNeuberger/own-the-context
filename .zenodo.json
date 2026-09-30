@@ -1,0 +1,32 @@
+{
+  "title": "Own the Context, Rent the Model: starter kit",
+  "upload_type": "software",
+  "description": "Topic-free template repository accompanying the article 'Own the Context, Rent the Model: Design Principles for a Local, Auditable Research Assistant for Literature Synthesis and Statistical Analysis' (journal version under review). An earlier working-paper version appeared on SSRN (DOI 10.2139/ssrn.7171998). The repository contains a page-anchored summary template, agent contracts for import, verification, correction and a scheduled questioning pass, a taxonomy structure with neutral example tags, maintenance scripts for links, hubs, statistics, graph measures, taxonomy and DOI checks, and a number guard that binds manuscript numbers to a frozen run or a sourced register. The example vault is synthetic and entirely invented. No literature, data or licensed text is included. Licensing: the code in scripts/ is released under the MIT License, and all texts, templates, agent briefs and the example are released under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). See LICENSE.",
+  "notes": "The record-level licence field names MIT, the licence of the code. Texts, templates, briefs and the example are CC BY 4.0. The LICENSE file in the archive states the split by component.",
+  "creators": [
+    {
+      "name": "Neuberger, Franz",
+      "affiliation": "German Youth Institute (DJI)",
+      "orcid": "0000-0003-3427-0298"
+    }
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": [
+    "context engineering",
+    "intermediate memory",
+    "agentic workflows",
+    "auditable literature synthesis",
+    "reproducible research pipelines",
+    "data sovereignty"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.2139/ssrn.7171998",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-workingpaper"
+    }
+  ],
+  "version": "1.0.0",
+  "language": "eng"
+}

@@ -1,0 +1,45 @@
+% Synthetic mini manuscript for trying the number guard.
+% All numbers are invented. Frozen run: 2025-03-14_101500
+\documentclass[11pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+% \res{label}{value}: bound to one line of the frozen run (label-level binding)
+% \ext{key}{value}:   bound to one row of external_numbers.csv (exact)
+\newcommand{\res}[2]{#2}
+\newcommand{\ext}[2]{#2}
+
+\title{Remote Work and Commuting: A Synthetic Example}
+\author{Example Author}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Data}\label{sec:data}
+
+The analysis sample comprises \res{n_persons}{4,812} persons and
+19,230 person-waves from two waves of a synthetic household panel
+(frozen run 2025-03-14\_101500). The share of employees working remotely at
+least one day a week rose from 22.4\% in the first wave to 28.7\% in the
+second, an increase of \res{diff_share_w2_w1}{6.3} percentage points. An
+external benchmark puts the national share at \ext{benchmark_remote_share}{24.0}\%
+in 2023.
+
+\section{Results}\label{sec:results}
+
+In the fixed-effects model (Table~\ref{tab:fe}), starting remote work is
+associated with a decrease in weekly commuting hours of
+\res{coef_remote}{1.84} (SE 0.41; $N = 19{,}230$).
+
+\begin{table}[h]
+\centering
+\caption{Fixed-effects estimate (synthetic).}\label{tab:fe}
+\begin{tabular}{lr}
+\hline
+Remote work & $-1.84$ \\
+ & $(0.41)$ \\
+Person-waves & 19,230 \\
+\hline
+\end{tabular}
+\end{table}
+
+\end{document}
