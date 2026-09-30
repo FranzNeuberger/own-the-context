@@ -1,4 +1,4 @@
-# Own the Context, Rent the Model — starter kit
+# Own the Context, Rent the Model: starter kit
 
 A topic-free template for building a **local, auditable research assistant**:
 an agent-maintained, page-anchored literature memory in plain text, plus the
@@ -10,8 +10,8 @@ This repository accompanies the article
 > Research Assistant for Literature Synthesis and Statistical Analysis.*
 
 Paper: working paper (SSRN, DOI
-[10.2139/ssrn.7171998](https://doi.org/10.2139/ssrn.7171998)); journal
-version under review.
+[10.2139/ssrn.7171998](https://doi.org/10.2139/ssrn.7171998)). The journal
+version is under review.
 
 Author: Franz Neuberger, German Youth Institute (DJI), Munich.
 ORCID: [0000-0003-3427-0298](https://orcid.org/0000-0003-3427-0298)
@@ -46,17 +46,17 @@ and check.
 
 | # | Principle | What it means in practice | Artefact here |
 |---|-----------|---------------------------|---------------|
-| 1 | **Plain text first, locally held** | Markdown, YAML, CSV, R and LaTeX under version control; binary formats only at the edges and only where unavoidable (PDF in, PDF out; word-processor files for co-authors who do not work in LaTeX). `grep`, `diff` and the Git history are the repair tools. | the whole tree |
+| 1 | **Plain text first, locally held** | Markdown, YAML, CSV, R and LaTeX are kept under version control. Binary formats appear only at the edges and only where unavoidable (PDF in and PDF out, plus word-processor files for co-authors who do not work in LaTeX). `grep`, `diff` and the Git history are the repair tools. | the whole tree |
 | 2 | **Every claim carries an address** | Each hard claim in a summary ends with a page anchor `(p. X)`. Metadata come from the front matter of the PDF. Corrections are recorded, never silent. | `templates/entry_template.md` |
 | 3 | **Say only what the source says** | Wording rule: no paraphrase exceeds the scope, population or strength of the passage it cites. Claim-check notes record what a source does *not* support. Quotations are verbatim, checked against the rendered page. | `Quotable` section; claim-check bullets |
-| 4 | **Declare the version** | Each summary names the version it summarises (working paper, preprint, online-first, print); anchors follow that pagination. Print beats working paper. Never convert pages by an offset. | `Version summarised` field; `contracts/fixer_brief.md` |
-| 5 | **A second instance checks, without write rights** | A fresh-context verifier reads summary and PDF and reports; it does not edit. The fixer re-checks each finding before correcting. | `contracts/verifier_brief.md`, `contracts/fixer_brief.md` |
-| 6 | **Curate the register, grow additively** | A controlled taxonomy with admissions, consolidations, reasoned rejections and pending proposals; curated hub notes that are only ever appended to, never rebuilt from tag lines. | `taxonomy.example.yaml`, `scripts/add_to_hubs.py`, `contracts/post_import_sync.md` |
-| 7 | **Narrow mandates, written contracts, human gates** | Subagents write only their own entry; shared files are finalised by one main agent; new tags wait for the researcher's approval. Document content is data, never instruction. | `contracts/import_brief.md` |
-| 8 | **Grounded maieutics** | A scheduled questioning pass over entry pairs across clusters; a new edge is written back only after the wording of both sources has been checked, and only with the researcher's approval. | `contracts/maieutic_pass_brief.md`, `templates/synthesis_template.md` |
-| 9 | **The agent reads the map, not the microdata** | A machine-readable variable map (with waves, wording changes and filters) lets the agent write analysis code for data it never sees. The researcher runs the code; the agent reads aggregate output. | `templates/variable_map_template.csv`, `templates/availability_matrix_template.csv`, `templates/lookup_template.csv`, `templates/project_skeleton.md` |
-| 10 | **One run, one protocol, one freeze** | Numbered scripts called in fixed order by one master script; one log per run; a dated freeze with a run ID; a pointer file names the current freeze. | `templates/project_skeleton.md` |
-| 11 | **Every number bound** | A number guard checks the numbers in the LaTeX source, apart from the excluded contexts listed in the script, against the frozen run (with rounding tolerance) or against a sourced register of external numbers (exactly). Key results are bound at label level. It binds numbers to their origin; it does not prove them correct. | `scripts/check_numbers.py`, `templates/external_numbers_template.csv` |
+| 4 | **Declare the version** | Each summary names the version it summarises (working paper, preprint, online-first, print). Anchors follow that pagination. Print beats working paper. Never convert pages by an offset. | `Version summarised` field; `contracts/fixer_brief.md` |
+| 5 | **A second instance checks, without write rights** | A fresh-context verifier reads summary and PDF and reports its findings. It does not edit. The fixer re-checks each finding before correcting. | `contracts/verifier_brief.md`, `contracts/fixer_brief.md` |
+| 6 | **Curate the register, grow additively** | A controlled taxonomy records admissions, consolidations, reasoned rejections and pending proposals. Curated hub notes are only ever appended to and never rebuilt from tag lines. | `taxonomy.example.yaml`, `scripts/add_to_hubs.py`, `contracts/post_import_sync.md` |
+| 7 | **Narrow mandates, written contracts, human gates** | Subagents write only their own entry. One main agent finalises the shared files. New tags wait for the researcher's approval. Document content is data, never instruction. | `contracts/import_brief.md` |
+| 8 | **Grounded maieutics** | A scheduled questioning pass goes over entry pairs across clusters. A new edge is written back only after the wording of both sources has been checked, and only with the researcher's approval. | `contracts/maieutic_pass_brief.md`, `templates/synthesis_template.md` |
+| 9 | **The agent reads the map, not the microdata** | A machine-readable variable map (with waves, wording changes and filters) lets the agent write analysis code for data it never sees. The researcher runs the code, and the agent reads the aggregate output. | `templates/variable_map_template.csv`, `templates/availability_matrix_template.csv`, `templates/lookup_template.csv`, `templates/project_skeleton.md` |
+| 10 | **One run, one protocol, one freeze** | One master script calls numbered scripts in fixed order. Each run writes one log. Each freeze is dated and carries a run ID, and a pointer file names the current freeze. | `templates/project_skeleton.md` |
+| 11 | **Every number bound** | A number guard checks the numbers in the LaTeX source, apart from the excluded contexts listed in the script, against the frozen run (with rounding tolerance) or against a sourced register of external numbers (exactly). Key results are bound at label level. It binds numbers to their origin but does not prove them correct. | `scripts/check_numbers.py`, `templates/external_numbers_template.csv` |
 | 12 | **Own the context, rent the model** | Memory, rules, maps, code and results are plain text in open formats, held by the researcher. The model is accessed through a provider's interface and can be replaced, although the agent briefs may need adapting to another tool. | the whole tree |
 
 ---
@@ -198,9 +198,9 @@ last pages such as `101-12` for `101-112`).
   model. Any capable command-line agent can follow the briefs, but results depend
   on the model. The model and the agent tool are usually proprietary and paid
   for. Everything else the kit uses is open source and free of charge.
-- **Inference sends text to the provider.** Whatever the agent reads — source
-  text, summaries, code, aggregate output — passes through the model
-  provider's interface. Keep confidential microdata outside the agent's
+- **Inference sends text to the provider.** Everything the agent reads passes
+  through the model provider's interface. This includes source text,
+  summaries, code and aggregate output. Keep confidential microdata outside the agent's
   reach (principle 9) and check your institution's rules before processing
   licensed or sensitive material.
 - **Licensed PDFs never go into a public repository**, and neither do the
