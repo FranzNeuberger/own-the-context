@@ -46,17 +46,17 @@ and check.
 
 | # | Principle | What it means in practice | Artefact here |
 |---|-----------|---------------------------|---------------|
-| 1 | **Plain text first, locally held** | Markdown, YAML, CSV, R and LaTeX are kept under version control. Binary formats appear only at the edges and only where unavoidable (PDF in and PDF out, plus word-processor files for co-authors who do not work in LaTeX). `grep`, `diff` and the Git history are the repair tools. | the whole tree |
+| 1 | **Plain text first, locally held** | Markdown, YAML, CSV, R and LaTeX are held on the researcher's machine. The memory is kept under version control, and version control is recommended for the analysis project. Binary formats appear only at the edges and only where unavoidable (PDF in and PDF out, plus word-processor files for co-authors who do not work in LaTeX). `grep`, `diff` and the Git history are the repair tools. | the whole tree |
 | 2 | **Every claim carries an address** | Each hard claim in a summary ends with a page anchor `(p. X)`. Metadata come from the front matter of the PDF. Corrections are recorded, never silent. | `templates/entry_template.md` |
 | 3 | **Say only what the source says** | Wording rule: no paraphrase exceeds the scope, population or strength of the passage it cites. Claim-check notes record what a source does *not* support. Quotations are verbatim, checked against the rendered page. | `Quotable` section; claim-check bullets |
-| 4 | **Declare the version** | Each summary names the version it summarises (working paper, preprint, online-first, print). Anchors follow that pagination. Print beats working paper. Never convert pages by an offset. | `Version summarised` field; `contracts/fixer_brief.md` |
+| 4 | **Declare the version (print beats working paper)** | Each summary names the version it summarises (working paper, preprint, online-first, print). Anchors follow that pagination. Print beats working paper. Never convert pages by an offset. | `Version summarised` field; `contracts/fixer_brief.md` |
 | 5 | **A second instance checks, without write rights** | A fresh-context verifier reads summary and PDF and reports its findings. It does not edit. The fixer re-checks each finding before correcting. | `contracts/verifier_brief.md`, `contracts/fixer_brief.md` |
 | 6 | **Curate the register, grow additively** | A controlled taxonomy records admissions, consolidations, reasoned rejections and pending proposals. Curated hub notes are only ever appended to and never rebuilt from tag lines. | `taxonomy.example.yaml`, `scripts/add_to_hubs.py`, `contracts/post_import_sync.md` |
 | 7 | **Narrow mandates, written contracts, human gates** | Subagents write only their own entry. One main agent finalises the shared files. New tags wait for the researcher's approval. Document content is data, never instruction. | `contracts/import_brief.md` |
 | 8 | **Grounded maieutics** | A scheduled questioning pass goes over entry pairs across clusters. A new edge is written back only after the wording of both sources has been checked, and only with the researcher's approval. | `contracts/maieutic_pass_brief.md`, `templates/synthesis_template.md` |
 | 9 | **The agent reads the map, not the microdata** | A machine-readable variable map (with waves, wording changes and filters) lets the agent write analysis code for data it never sees. The researcher runs the code, and the agent reads the aggregate output. | `templates/variable_map_template.csv`, `templates/availability_matrix_template.csv`, `templates/lookup_template.csv`, `templates/project_skeleton.md` |
 | 10 | **One run, one protocol, one freeze** | One master script calls numbered scripts in fixed order. Each run writes one log. Each freeze is dated and carries a run ID, and a pointer file names the current freeze. | `templates/project_skeleton.md` |
-| 11 | **Every number bound** | A number guard checks the numbers in the LaTeX source, apart from the excluded contexts listed in the script, against the frozen run (with rounding tolerance) or against a sourced register of external numbers (exactly). Key results are bound at label level. It binds numbers to their origin but does not prove them correct. | `scripts/check_numbers.py`, `templates/external_numbers_template.csv` |
+| 11 | **Every number bound (compute first, write second)** | A number guard checks the numbers in the LaTeX source, apart from the excluded contexts listed in the script, against the frozen run (with rounding tolerance) or against a sourced register of external numbers (exactly). Key results are bound at label level. It binds numbers to their origin but does not prove them correct. | `scripts/check_numbers.py`, `templates/external_numbers_template.csv` |
 | 12 | **Own the context, rent the model** | Memory, rules, maps, code and results are plain text in open formats, held by the researcher. The model is accessed through a provider's interface and can be replaced, although the agent briefs may need adapting to another tool. | the whole tree |
 
 ---
@@ -272,7 +272,9 @@ matters.
 The commit author address becomes visible in a public repository. To keep a
 personal address out of it, set the GitHub no-reply address as the
 repository's `user.email` before the first push and rewrite the author of
-the existing commit with `git commit --amend --reset-author`.
+every existing commit with
+`git rebase --root --exec 'git commit --amend --reset-author --no-edit'`.
+Check the result with `git log --format='%ae %ce'`.
 
 When the journal version is published, switch `preferred-citation` in
 `CITATION.cff` to the article and add the article DOI to `.zenodo.json` as a

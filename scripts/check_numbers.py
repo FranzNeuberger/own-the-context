@@ -55,8 +55,9 @@ Excluded from the manuscript tokens
 comments; the bibliography; arguments of reference, citation, label, input,
 graphics, url and layout commands, including the whole cell content of
 \\multicolumn and \\multirow; macro definitions (\\newcommand and similar);
-tikzpicture environments; lengths
-(12pt, 0.5\\textwidth); years 1900-2099; dates (2025-03-14, 14.03.2025) and
+tikzpicture environments; lengths with the unit attached
+(12pt, 0.5\\textwidth); a length written with a space (12 pt) is treated as
+a number; years 1900-2099; dates (2025-03-14, 14.03.2025) and
 run IDs; digits inside identifiers (H1, v3, R^2). Integers up to
 --ignore-int-upto N can be skipped on request (default -1: none are skipped).
 
@@ -67,7 +68,7 @@ no failed status and no ERROR lines; all modules required for --version
 present; the pointer names the newest run; a freeze pinned for --version
 equals the current one (a version-pinned checker must not go stale); run ID
 verbatim in the manuscript (comments count); no open placeholders (TODO,
-XXX, ??, \\todo) in the text; every register row has a value and a source;
+TBD, XXX, ??, \\todo) in the text; every register row has a value and a source;
 figures (optional) as above.
 
 Release rule: exit code 0 only if every number is bound and no structural
@@ -77,10 +78,12 @@ Self-test
 ---------
   check_numbers.py --self-test
 builds a synthetic run and manuscript in a temporary folder and confirms that
-the guard passes the clean case and fires on: a single manipulated digit, a
-manipulated value inside \\res, a pointer to an older run, a missing run, an
-incomplete run (module missing), an unknown \\res label, a register value
-at another magnitude (\\ext) and a register value with a flipped sign.
+the guard passes the clean case and lengths with an attached unit, and fires
+on: a single manipulated digit, a manipulated value inside \\res, a pointer
+to an older run, a missing run, an incomplete run (module missing), an
+unknown \\res label, a register value at another magnitude (\\ext), a
+register value with a flipped sign and an unbound number followed by the
+word 'in'.
 """
 from __future__ import annotations
 
@@ -246,8 +249,8 @@ SKIP_CMDS = (
     r"begin|end|hypersetup|geometry|captionsetup|graphicspath"
 )
 LENGTH_RE = re.compile(
-    r"[-]?\d*\.?\d+\s*(?:pt|cm|mm|in|em|ex|bp|sp|pc|\\(?:text|line|column|paper)"
-    r"(?:width|height))\b")
+    r"-?\d*\.?\d+(?:pt|cm|mm|in|em|ex|bp|sp|pc)\b"
+    r"|-?\d*\.?\d+[ \t]*\\(?:text|line|column|paper)(?:width|height)\b")
 DATE_RE = re.compile(
     r"\d{4}-\d{2}-\d{2}(?:(?:\\?_|T)\d{4,6})?|\b\d{1,2}\.\d{1,2}\.\d{4}\b|"
     r"\b\d{1,2}\s+(?:January|February|March|April|May|June|July|August|"
@@ -511,6 +514,10 @@ def self_test() -> int:
                  tex_text=tex.replace(r"\ext{bench}{12.0}", r"\ext{bench}{1.2}"))
         run_case("register value with flipped sign fires", 1,
                  tex_text=tex.replace(r"\ext{bench}{12.0}", r"\ext{bench}{-12.0}"))
+        run_case("unbound number before the word 'in' fires", 1,
+                 tex_text=tex + "A value of 77.7 in the text.\n")
+        run_case("lengths with attached unit pass", 0,
+                 tex_text=tex + r"\\[6pt] \hskip 0.5\textwidth \kern-1.5ex" + "\n")
 
     failed = 0
     for name, expect, code in cases:
