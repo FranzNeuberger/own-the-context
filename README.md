@@ -1,5 +1,7 @@
 # Own the Context, Rent the Model: starter kit
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23187847.svg)](https://doi.org/10.5281/zenodo.23187847)
+
 A topic-free template for building a **local, auditable research assistant**:
 an agent-maintained, page-anchored literature memory in plain text, plus the
 analysis and manuscript chain that binds every reported number to its origin.
@@ -16,8 +18,9 @@ version is under review.
 Author: Franz Neuberger, German Youth Institute (DJI), Munich.
 ORCID: [0000-0003-3427-0298](https://orcid.org/0000-0003-3427-0298)
 
-Version: 1.0.0. The archive DOI (Zenodo) is minted with the first GitHub
-release and added here afterwards (see "Releasing" below).
+Version: 1.0.1 (released 6 October 2026). Archive: Zenodo, concept DOI
+[10.5281/zenodo.23187847](https://doi.org/10.5281/zenodo.23187847), which always resolves to the
+latest version (see "Releasing" below).
 
 The repository contains the procedure, not a corpus. It ships no literature,
 no data and no licensed text. The example is entirely made up. Every author,
@@ -247,9 +250,10 @@ paper.
 
 ## Releasing
 
-The first public version is 1.0.0. The archive DOI comes from Zenodo, which
-archives each GitHub release of the repository. The order of the steps
-matters.
+The first public release was v1.0.1 on 6 October 2026 (concept DOI
+10.5281/zenodo.23187847, version DOI 10.5281/zenodo.23187848). The archive DOI comes
+from Zenodo, which archives each GitHub release of the repository. The order
+of the steps matters.
 
 1. Create an empty public repository named `own-the-context` on GitHub.
    Do not let GitHub add a README, a licence or a `.gitignore`, so that the
@@ -260,7 +264,7 @@ matters.
 3. Connect the local clone and push it:
    `git remote add origin <repository URL>` and then
    `git push -u origin main`.
-4. On GitHub, create the release `v1.0.0` from `main`. Zenodo reads
+4. On GitHub, create the release `vX.Y.Z` from `main`. Zenodo reads
    `.zenodo.json`, archives the release and mints two DOIs. The version DOI
    names this release, and the concept DOI always resolves to the latest
    version.
@@ -268,6 +272,9 @@ matters.
    above) and in `CITATION.cff` (`doi` and `date-released`, see the comment
    at the top of that file). Commit and push. The metadata update needs no
    second release.
+6. For a later version, raise `version` in `CITATION.cff` and `.zenodo.json`
+   before tagging, so that the archived metadata carry the same number as
+   the tag. Zenodo adds the new version under the same concept DOI.
 
 The commit author address becomes visible in a public repository. To keep a
 personal address out of it, set the GitHub no-reply address as the

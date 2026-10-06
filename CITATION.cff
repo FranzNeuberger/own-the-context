@@ -1,8 +1,7 @@
-# Release TODOs (after the GitHub release v1.0.0 has been archived by Zenodo):
-#   1. Uncomment `date-released` below and set it to the release date.
-#   2. Uncomment `doi` below and set it to the Zenodo concept DOI.
-#   3. Once the journal version is published, switch `preferred-citation`
-#      to the article (type: article, journal, DOI).
+# Release v1.0.1 (6 October 2026) is archived by Zenodo; `doi` below is the
+# concept DOI, which resolves to the latest version.
+# Remaining TODO: once the journal version is published, switch
+# `preferred-citation` to the article (type: article, journal, DOI).
 # Everything outside these comments is valid CFF 1.2.0 as it stands.
 #
 # Licence: the code in scripts/ is MIT, and all texts, templates, briefs and
@@ -24,9 +23,9 @@ authors:
     affiliation: "German Youth Institute (DJI)"
     orcid: "https://orcid.org/0000-0003-3427-0298"
 license: MIT
-version: "1.0.0"
-# date-released: "YYYY-MM-DD"        # RELEASE TODO 1: date of the v1.0.0 release
-# doi: "10.5281/zenodo.NNNNNNN"      # RELEASE TODO 2: Zenodo concept DOI
+version: "1.0.1"
+date-released: "2026-10-06"
+doi: "10.5281/zenodo.23187847"
 keywords:
   - context engineering
   - intermediate memory
