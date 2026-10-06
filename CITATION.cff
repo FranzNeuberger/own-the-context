@@ -35,7 +35,7 @@ keywords:
   - data sovereignty
 preferred-citation:
   type: report
-  title: "The AI Zettelkasten: An Intermediate Memory for the Literature of a Sociological Subfield. A Field Report and How-To"
+  title: "The AI Zettelkasten: An Intermediate Memory for the Literature of a Sociological Subfield. A Field Report"
   authors:
     - family-names: Neuberger
       given-names: Franz
@@ -45,6 +45,6 @@ preferred-citation:
   publisher:
     name: SSRN
   number: "7171998"
-  notes: "SSRN Working Paper"
+  notes: "SSRN Working Paper, posted 5 August 2026, last revised 24 September 2026 (version 3.0), CC BY 4.0"
   doi: "10.2139/ssrn.7171998"
   url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7171998"
